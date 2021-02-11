@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:infinite_scroll/cards_view_model.dart';
+import 'package:infinite_scroll/viewmodel/cards_view_model.dart';
 
 import 'card_item_view.dart';
 

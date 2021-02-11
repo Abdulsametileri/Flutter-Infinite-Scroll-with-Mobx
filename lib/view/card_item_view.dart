@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'card_model.dart';
+import 'package:infinite_scroll/model/card_model.dart';
 
 class CardItemView extends StatelessWidget {
   final CardModel card;

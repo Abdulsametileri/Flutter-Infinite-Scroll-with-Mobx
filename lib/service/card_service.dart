@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:infinite_scroll/card_model.dart';
-import 'package:infinite_scroll/card_service_interface.dart';
-import 'package:infinite_scroll/pagination_model.dart';
+import 'package:infinite_scroll/model/card_model.dart';
+import 'package:infinite_scroll/service/card_service_interface.dart';
+import 'package:infinite_scroll/model/pagination_model.dart';
 
 class CardService extends CardServiceInterface {
   Dio _dio;

@@ -1,9 +1,9 @@
-import 'package:infinite_scroll/card_service_interface.dart';
+import 'package:infinite_scroll/service/card_service_interface.dart';
 import 'package:mobx/mobx.dart';
 
-import 'card_model.dart';
-import 'card_service.dart';
-import 'pagination_model.dart';
+import '../model/card_model.dart';
+import '../service/card_service.dart';
+import '../model/pagination_model.dart';
 
 part 'cards_view_model.g.dart';
 
@@ -26,6 +26,7 @@ abstract class _CardsViewModel with Store {
     if (_isFetchData) {
       return;
     }
+    print(_page);
 
     _isFetchData = true;
 
