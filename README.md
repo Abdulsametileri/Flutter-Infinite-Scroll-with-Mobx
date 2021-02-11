@@ -1,5 +1,5 @@
 # Infinite scroll with MobX  
 
-![Sample](view.gif)
+![Sample](sample.gif)
 
 

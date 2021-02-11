@@ -29,6 +29,8 @@ abstract class _CardsViewModel with Store {
 
     isFetchData = true;
 
+    print(_page);
+
     var paginate = PaginationModel(page: _page, limit: _limit);
     var res = await _service.fetchCards(paginate);
     if (res != null && res.isNotEmpty) {
