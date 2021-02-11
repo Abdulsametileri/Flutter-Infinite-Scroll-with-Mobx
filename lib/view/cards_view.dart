@@ -12,26 +12,13 @@ class CardsView extends StatefulWidget {
 class _CardsViewState extends State<CardsView> {
   CardsViewModel _vm;
 
-  final ScrollController _scrollController = ScrollController();
-
   @override
   void initState() {
     _vm = CardsViewModel();
     _vm.init();
     _vm.fetchCards();
 
-    _addScrollListener();
-
     super.initState();
-  }
-
-  void _addScrollListener() {
-    _scrollController.addListener(() {
-      bool isUserScrollAtBottomOfThePage = _scrollController.offset >= _scrollController.position.maxScrollExtent;
-      if (isUserScrollAtBottomOfThePage) {
-        _vm.fetchCards();
-      }
-    });
   }
 
   Widget build(BuildContext context) {
@@ -46,10 +33,10 @@ class _CardsViewState extends State<CardsView> {
 
         return ListView.builder(
           padding: const EdgeInsets.all(16.0),
-          controller: _scrollController,
           itemCount: _vm.cards.length + 1,
           itemBuilder: (context, index) {
             if (index == _vm.cards.length) {
+              _vm.fetchCards();
               return _buildLoading;
             }
 
@@ -64,11 +51,5 @@ class _CardsViewState extends State<CardsView> {
     return Center(
       child: CircularProgressIndicator(),
     );
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
   }
 }

@@ -12,7 +12,7 @@ class CardsViewModel = _CardsViewModel with _$CardsViewModel;
 abstract class _CardsViewModel with Store {
   CardServiceInterface _service;
 
-  bool _isFetchData = false;
+  bool isFetchData = false;
   int _page = 1;
   int _limit = 5;
 
@@ -23,12 +23,11 @@ abstract class _CardsViewModel with Store {
   ObservableList<CardModel> cards = ObservableList<CardModel>();
 
   Future fetchCards() async {
-    if (_isFetchData) {
+    if (isFetchData) {
       return;
     }
-    print(_page);
 
-    _isFetchData = true;
+    isFetchData = true;
 
     var paginate = PaginationModel(page: _page, limit: _limit);
     var res = await _service.fetchCards(paginate);
@@ -37,6 +36,6 @@ abstract class _CardsViewModel with Store {
       _page++;
     }
 
-    _isFetchData = false;
+    isFetchData = false;
   }
 }
